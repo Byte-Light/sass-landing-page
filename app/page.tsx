@@ -18,46 +18,43 @@ import { CircleCheck } from "lucide-react";
 export default function Home() {
   return (
     <>
-      <div className="border-b border-border">
+      {/* Hero Section */}
+      <div className="border-b border-border bg-gradient-to-r from-gray-100 via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-black">
         <main className="container mx-auto">
-          <div className="relative md:mt-24 mx-auto w-full max-w-4xl pt-4 text-center">
-            <div className="justify-center hidden md:flex">
-              <div className="flex flex-row items-center justify-center gap-5 p-1 text-xs bg-card/60 backdrop-blur-lg rounded-md border border-border">
+          <div className="relative md:mt-20 mx-auto w-full max-w-4xl pt-8 text-center">
+            <div className="hidden md:flex justify-center">
+              <div className="flex items-center gap-3 p-2 text-xs bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-lg border border-gray-300 dark:border-gray-600">
                 <Badge className="font-semibold">New</Badge>
-                <h5>Announce your new feature here</h5>
-                <Link href="/" className="flex flex-row items-center">
-                  View all features
-                  <ArrowRightIcon className="w-6 h-6 ml-2" />
+                <span className="text-gray-700 dark:text-gray-300">
+                  Introducing our latest feature update!
+                </span>
+                <Link
+                  href="/"
+                  className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  Learn More <ArrowRightIcon className="ml-2 w-5 h-5" />
                 </Link>
               </div>
             </div>
-            <h1 className="md:text-6xl my-4 font-extrabold text-3xl md:leading-tight">
-              Build stunning web experiences with Byte Light
+            <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100">
+              Build Exceptional Websites with Byte Light
             </h1>
-            <p className="mx-auto my-4 text-sm w-full max-w-xl text-center font-medium leading-relaxed tracking-wide">
-              This landing page template by Bytelight is crafted to help you
-              create a stunning and functional website effortlessly. Tailored
-              for apps, products, or services, it offers full customization with
-              a sleek, modern design. Built using Next.js, Tailwind CSS, and
-              TypeScript, it combines performance, scalability, and ease of use.
+            <p className="mx-auto mt-6 text-base text-gray-600 dark:text-gray-400 max-w-xl">
+              Byte Light provides a seamless and customizable platform to create
+              stunning digital experiences with ease. Powered by Next.js,
+              TailwindCSS, and TypeScript.
             </p>
-            <div className="flex flex-row justify-center items-center space-x-4 my-8">
+            <div className="flex justify-center mt-8 gap-4">
               <Button>Get Started</Button>
               <Button variant="secondary">Learn More</Button>
             </div>
-
-            <div className="absolute top-0 -z-10 max-h-full max-w-screen-lg w-full h-full blur-2xl">
-              <div className="absolute top-24 left-24 w-56 h-56 bg-violet-600 rounded-full mix-blend-multiply opacity-70 animate-blob filter blur-3xl"></div>
-              <div className="absolute hidden md:block bottom-2 right-1/4 w-56 h-56 bg-sky-600 rounded-full mix-blend-multiply opacity-70 animate-blob delay-1000 filter blur-3xl"></div>
-              <div className="absolute hidden md:block bottom-1/4 left-1/3 w-56 h-56 bg-pink-600 rounded-full mix-blend-multiply opacity-70 animate-blob delay-500 filter blur-3xl"></div>
-            </div>
           </div>
 
-          <div className="max-w-4xl mx-auto mb-8">
+          <div className="mt-12 max-w-4xl mx-auto">
             <Image
-              className="w-full"
+              className="rounded-lg shadow-lg"
               src="/dashboard-ui.png"
-              alt="Dashboard ui design"
+              alt="Dashboard UI Design"
               priority
               width={1200}
               height={800}
@@ -66,96 +63,102 @@ export default function Home() {
         </main>
       </div>
 
-      {/* features */}
-
-      <section className="border-b border-border bg-gradient-to-b from-background to-transparent via-background via-90% relative">
+      {/* Features Section */}
+      <section className="bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 py-16">
         <div className="container mx-auto text-center">
-          <div className="my-24">
-            <h5 className="text-primary">WHY CHOOSE US</h5>
-            <h2 className="text-4xl font-extrabold my-4">
-              Build better websites with us
-            </h2>
-
-            <p className="mx-auto my-4 text-sm w-full max-w-md bg-transparent text-center font-medium leading-relaxed tracking-wide text-muted-foreground">
-              Show off your features or services in a beautiful way. This
-              section is perfect for showcasing
-            </p>
-
-            <div className="flex flex-col md:flex-row gap-4 mt-12">
-              {features.map((feature) => (
-                <Card key={feature.title} className="max-w-lg mx-auto">
-                  <CardHeader>
-                    <div className="w-16 h-16 text-primary-foreground flex justify-center items-center border border-border rounded-xl bg-primary mx-auto">
-                      {feature.icon}
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardTitle>{feature.title}</CardTitle>
-                    <CardDescription className="mt-4">
-                      {feature.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          <h5 className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
+            WHY CHOOSE US
+          </h5>
+          <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-gray-100">
+            Elevate Your Website with Our Features
+          </h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
+            Discover powerful tools and features tailored to help you create
+            standout websites effortlessly.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature) => (
+              <Card
+                key={feature.title}
+                className="p-6 text-center border border-gray-200 shadow-md hover:shadow-lg dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700 transition-shadow"
+              >
+                <CardHeader>
+                  <div className="mx-auto w-16 h-16 flex items-center justify-center bg-blue-100 dark:bg-blue-500/30 rounded-full">
+                    {feature.icon}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <CardTitle className="mt-4 text-xl font-semibold text-gray-800 dark:text-gray-100">
+                    {feature.title}
+                  </CardTitle>
+                  <CardDescription className="mt-2 text-gray-600 dark:text-gray-400">
+                    {feature.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </div>
-        <div className="absolute top-0 -z-10 max-h-full w-full h-full blur-2xl">
-          <div className="absolute bottom-0 left-0 w-1/2 h-56 bg-violet-600 rounded-full mix-blend-multiply opacity-70 animate-blob filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-1/2 h-56 bg-sky-600 rounded-full mix-blend-multiply opacity-70 animate-blob delay-1000 filter blur-3xl"></div>
         </div>
       </section>
 
-      {/* Pricing */}
-
-      <section className="border-b dark border-border bg-background">
+      {/* Pricing Section */}
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto text-center">
-          <div className="py-14">
-            <h2 className="text-4xl font-extrabold my-4 text-foreground">
-              Pricing Plans
-            </h2>
-
-            <p className="mx-auto my-4 text-sm w-full max-w-md bg-transparent text-center font-medium leading-relaxed tracking-wide text-muted-foreground">
-              Choose a plan that works best for you. You can always upgrade or
-              downgrade your plan later.
-            </p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {pricing.map((plan) => (
-                <Card
-                  key={plan.title}
-                  className="w-full mx-auto max-w-xl text-left relative"
-                >
-                  {plan.fancy && (
-                    <Badge className="absolute top-4 right-4">Popular</Badge>
-                  )}
-                  <CardHeader>
-                    <CardTitle className="text-2xl">{plan.title}</CardTitle>
-                    <CardDescription className="mt-4">
-                      {plan.description}
-                    </CardDescription>
-                    <h5 className="text-2xl font-bold">{plan.price}</h5>
-                  </CardHeader>
-                  <CardContent>
-                    <Button
-                      className="w-full"
-                      variant={plan.fancy ? "default" : "secondary"}
-                    >
-                      Get Started
-                    </Button>
-                  </CardContent>
-                  <CardFooter>
-                    <ul className="mt-4">
-                      {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2">
-                          <CircleCheck className="w-4 h-4 text-green-500" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-gray-100">
+            Pricing Plans
+          </h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-md mx-auto">
+            Choose a plan that suits your needs. Upgrade or downgrade anytime.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {pricing.map((plan) => (
+              <Card
+                key={plan.title}
+                className={`p-6 border ${
+                  plan.fancy
+                    ? "border-blue-600 shadow-lg dark:border-blue-400"
+                    : "border-gray-200 shadow-sm dark:border-gray-600"
+                } bg-white dark:bg-gray-800 transition-shadow hover:shadow-lg`}
+              >
+                {plan.fancy && (
+                  <Badge className="absolute top-4 right-4 bg-blue-600 text-white dark:bg-blue-400">
+                    Popular
+                  </Badge>
+                )}
+                <CardHeader>
+                  <CardTitle className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+                    {plan.title}
+                  </CardTitle>
+                  <CardDescription className="mt-2 text-gray-600 dark:text-gray-400">
+                    {plan.description}
+                  </CardDescription>
+                  <h5 className="mt-4 text-3xl font-bold text-gray-800 dark:text-gray-100">
+                    {plan.price}
+                  </h5>
+                </CardHeader>
+                <CardContent>
+                  <Button
+                    className="w-full mt-4"
+                    variant={plan.fancy ? "default" : "secondary"}
+                  >
+                    Get Started
+                  </Button>
+                </CardContent>
+                <CardFooter className="mt-4">
+                  <ul className="space-y-2">
+                    {plan.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-center gap-2 text-gray-600 dark:text-gray-400"
+                      >
+                        <CircleCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
